@@ -1,0 +1,95 @@
+<div class="cyber-container">
+  <aside class="cyber-sidebar">
+    <div class="brand">CYBERSHOP</div>
+    
+    <div class="nav-section">
+      <span class="nav-label">NAVIGATION</span>
+      <a routerLink="/admin/dashboard" routerLinkActive="active" class="nav-item">Dashboard</a>
+      <a routerLink="/admin/inventory" routerLinkActive="active" class="nav-item">Inventory</a>
+      <a routerLink="/admin/orders" routerLinkActive="active" class="nav-item">Orders</a>
+    </div>
+
+    <div class="nav-section">
+      <span class="nav-label">ANALYTICS & TOOLS</span>
+      <a routerLink="/admin/analytics" routerLinkActive="active" class="nav-item">Analytics</a>
+      <a routerLink="/admin/security" routerLinkActive="active" class="nav-item">Security Hub</a>
+    </div>
+
+    <div class="nav-section">
+      <span class="nav-label">SYSTEM</span>
+      <a routerLink="/admin/settings" routerLinkActive="active" class="nav-item">Settings</a>
+      <a (click)="logout()" class="logout-btn">Log Out</a>
+    </div>
+  </aside>
+
+  <main class="cyber-main">
+    <header class="cyber-header">
+      <div class="welcome">WELCOME, {{ adminName | uppercase }}</div>
+      <div class="node-status">
+        <span class="pulse"></span> System Online | Durham Region Node
+      </div>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <label>Total Balance</label>
+        <div class="value">$0.00</div>
+        <div class="sub-value">Potential Growth: $0.00</div>
+        <div class="trend positive">+11% this month</div>
+      </div>
+
+      <div class="stat-card">
+        <label>Active Sessions</label>
+        <div class="value">333</div>
+        <div class="sub-value">Live connections</div>
+      </div>
+
+      <div class="stat-card">
+        <label>Security Threat</label>
+        <div class="value threat-low">LOW</div>
+        <div class="sub-value">Encryption: AES-256 Active</div>
+        <div class="integrity">Integrity: 99.8%</div>
+      </div>
+    </div>
+
+    <div class="graph-card">
+      <div class="section-header">
+        <h3>SALES OVERVIEW</h3>
+        <span class="tech-detail">Real-time Node Analytics</span>
+      </div>
+      <div class="chart-wrapper">
+        <canvas #salesChart></canvas>
+      </div>
+    </div>
+
+    <section class="history-section">
+      <div class="section-header">
+        <h3>TRANSACTION HISTORY</h3>
+        <button class="view-all">View All</button>
+      </div>
+      <table class="cyber-table">
+        <thead>
+          <tr>
+            <th>CLIENT</th>
+            <th>ORDER ID</th>
+            <th>AMOUNT</th>
+            <th>LOCATION / ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of transactions">
+            <td>{{ order.client_name }}</td>
+            <td class="id-cell">#{{ order.order_id }}</td>
+            <td>${{ order.total_amount }}</td>
+            <td>{{ order.location }}</td>
+          </tr>
+          <tr *ngIf="transactions.length === 0">
+            <td colspan="4" style="text-align: center; padding: 20px; color: #4b5563;">
+              Awaiting Node Data...
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</div>

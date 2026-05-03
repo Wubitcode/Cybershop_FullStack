@@ -1,0 +1,51 @@
+<div class="cart-wrapper">
+
+  <h2 class="cart-title">🛒 CYBERSHOP CART</h2>
+
+  @if (cartItems().length === 0) {
+    <div class="empty-cart">
+      <p>Your cart is empty...</p>
+      <a routerLink="/shop" class="btn-glow">Go Shopping</a>
+    </div>
+  }
+
+  @for (item of cartItems(); track item.product_id) {
+
+    <div class="cart-card">
+
+      <div class="cart-info">
+        <h3>{{ item.name }}</h3>
+        <p class="price">{{ item.price | currency }}</p>
+      </div>
+
+      <!-- QUANTITY -->
+      <div class="qty-control">
+        <button (click)="updateQuantity(item.product_id, item.qty - 1)">−</button>
+        <span>{{ item.qty }}</span>
+        <button (click)="updateQuantity(item.product_id, item.qty + 1)">+</button>
+      </div>
+
+      <!-- REMOVE -->
+      <button class="remove-btn" (click)="removeItem(item.product_id)">
+        ✕
+      </button>
+
+    </div>
+
+  }
+
+  <!-- TOTAL -->
+  @if (cartItems().length > 0) {
+    <div class="cart-summary">
+
+      <h3>Total: {{ totalAmount() | currency }}</h3>
+
+      <div class="actions">
+        <button class="btn-clear" (click)="clearCart()">Clear</button>
+        <button class="btn-checkout" (click)="checkout()">Checkout</button>
+      </div>
+
+    </div>
+  }
+
+</div>

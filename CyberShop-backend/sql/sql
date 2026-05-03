@@ -1,0 +1,119 @@
+-- phpMyAdmin SQL Dump (GitHub-safe)
+-- Database: `cybershop_safe`
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+-- --------------------------------------------------------
+-- Table structure for table `users`
+-- --------------------------------------------------------
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` enum('admin','user') DEFAULT 'user',
+  `last_login` timestamp NULL DEFAULT NULL,
+  `failed_attempts` int(11) DEFAULT 0,
+  `is_locked` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Sample users
+INSERT INTO `users` (`user_id`, `name`, `email`, `password`, `role`, `last_login`, `failed_attempts`, `is_locked`) VALUES
+(1, 'Test User 1', 'user1@example.com', '$2y$10$examplehash', 'user', NULL, 0, 0),
+(2, 'Test User 2', 'user2@example.com', '$2y$10$examplehash', 'user', NULL, 0, 0),
+(3, 'Admin User', 'admin@example.com', '$2y$10$examplehash', 'admin', NULL, 0, 0);
+
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+-- --------------------------------------------------------
+-- Table structure for table `products`
+-- --------------------------------------------------------
+CREATE TABLE `products` (
+  `product_id` int(11) NOT NULL,
+  `sku` varchar(50) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `category` varchar(50) DEFAULT 'General',
+  `image` varchar(255) DEFAULT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `description` text DEFAULT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `duration` varchar(50) DEFAULT NULL,
+  `stock` int(11) DEFAULT 0,
+  `isActive` tinyint(4) DEFAULT 1,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updatedAt` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Sample products
+INSERT INTO `products` (`product_id`, `sku`, `name`, `category`, `image`, `price`, `description`, `stock`, `isActive`) VALUES
+(1, 'SKU-001', 'Sample Antivirus', 'Security', 'antivirus.png', 49.99, 'Sample antivirus description.', 100, 1),
+(2, 'SKU-002', 'Sample VPN', 'Privacy', 'vpn.png', 79.99, 'Sample VPN description.', 50, 1);
+
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`product_id`);
+
+ALTER TABLE `products`
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+-- --------------------------------------------------------
+-- Table structure for table `orders`
+-- --------------------------------------------------------
+CREATE TABLE `orders` (
+  `order_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `total` decimal(10,2) NOT NULL,
+  `order_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `status` enum('pending','paid','completed') DEFAULT 'pending'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Sample orders
+INSERT INTO `orders` (`order_id`, `user_id`, `total`, `order_date`, `status`) VALUES
+(1, 1, 49.99, '2026-03-25 10:00:00', 'pending');
+
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`),
+  ADD KEY `user_id` (`user_id`);
+
+ALTER TABLE `orders`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+-- --------------------------------------------------------
+-- Table structure for table `order_items`
+-- --------------------------------------------------------
+CREATE TABLE `order_items` (
+  `item_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Sample order items
+INSERT INTO `order_items` (`item_id`, `order_id`, `product_id`, `quantity`) VALUES
+(1, 1, 1, 1);
+
+ALTER TABLE `order_items`
+  ADD PRIMARY KEY (`item_id`),
+  ADD KEY `order_id` (`order_id`),
+  ADD KEY `product_id` (`product_id`);
+
+ALTER TABLE `order_items`
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+-- --------------------------------------------------------
+-- Foreign key constraints
+-- --------------------------------------------------------
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+ALTER TABLE `order_items`
+  ADD CONSTRAINT `order_items_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
+  ADD CONSTRAINT `order_items_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
+
+COMMIT;

@@ -1,0 +1,244 @@
+README.md
+Web Capston proposal
+admin
+api
+app
+assets
+folder_structure.txt
+public
+sql
+
+./Web Capston proposal:
+CyberShop Capstone - Wireframes.png
+CyberShop proposal.pdf
+Cybersecurity_Capstone_Presentation.pptx
+ER Diagram: Database Structure.png
+Web Capston proposal
+Wireframe: Pages & Navigation.png
+wirefram of CyberShop.png
+
+./Web Capston proposal/Web Capston proposal:
+CyberShop Capstone - Wireframes.png
+CyberShop proposal.pdf
+ER Diagram: Database Structure.png
+Wireframe: Pages & Navigation.png
+
+./admin:
+dashboard.php
+debug_check.php
+orders
+products
+
+./admin/orders:
+index.php
+update_status.php
+view.php
+
+./admin/products:
+create.php
+delete.php
+edit.php
+index.php
+
+./api:
+_bootstrap.php
+admin
+login.php
+logout.php
+orders_create.php
+products.php
+register.php
+
+./api/admin:
+products_create.php
+
+./app:
+auth.php
+config.php
+db.php
+helpers.php
+partials
+repos
+
+./app/partials:
+footer.php
+header.php
+
+./app/repos:
+orders_repo.php
+products_repo.php
+users_repo.php
+
+./assets:
+css
+images
+js
+
+./assets/css:
+style.css
+
+./assets/images:
+antivirus.png
+data_backup.png
+endpoint_hardening.png
+firewall.png
+firewall_setup.png
+logo.png
+network_assessment.png
+password_consulting.png
+password_manager.png
+placeholder-toy.png
+secure-vpn.png
+security_training.png
+vpn_setup.png
+vpn_subscription.png
+wifi pineapple.png
+wifi.png
+
+./assets/js:
+app.js
+
+./public:
+cart.php
+cart_add.php
+cart_remove.php
+checkout.php
+index.php
+login.php
+logout.php
+order_details.php
+orders.php
+product.php
+register.php
+test_login.php
+
+./sql:
+sql
+
+
+
+
+
+admin@Admins-MacBook-Air CyberShop % ls -R /Applications/XAMPP/xamppfiles/htdocs/cybershop | grep -v "node_modules" | grep -v ".git"
+README.md
+Web Capston proposal
+admin
+api
+app
+assets
+folder_structure.txt
+public
+sql
+
+/Applications/XAMPP/xamppfiles/htdocs/cybershop/Web Capston proposal:
+CyberShop Capstone - Wireframes.png
+CyberShop proposal.pdf
+Cybersecurity_Capstone_Presentation.pptx
+ER Diagram: Database Structure.png
+Web Capston proposal
+Wireframe: Pages & Navigation.png
+wirefram of CyberShop.png
+
+/Applications/XAMPP/xamppfiles/htdocs/cybershop/Web Capston proposal/Web Capston proposal:
+CyberShop Capstone - Wireframes.png
+CyberShop proposal.pdf
+ER Diagram: Database Structure.png
+Wireframe: Pages & Navigation.png
+
+/Applications/XAMPP/xamppfiles/htdocs/cybershop/admin:
+dashboard.php
+debug_check.php
+orders
+products
+security.php
+settings.php
+
+/Applications/XAMPP/xamppfiles/htdocs/cybershop/admin/orders:
+index.php
+update_status.php
+view.php
+
+/Applications/XAMPP/xamppfiles/htdocs/cybershop/admin/products:
+create.php
+delete.php
+edit.php
+index.php
+
+/Applications/XAMPP/xamppfiles/htdocs/cybershop/api:
+_bootstrap.php
+admin
+login.php
+logout.php
+orders_create.php
+products.php
+register.php
+
+/Applications/XAMPP/xamppfiles/htdocs/cybershop/api/admin:
+products_create.php
+
+/Applications/XAMPP/xamppfiles/htdocs/cybershop/app:
+auth.php
+config.php
+db.php
+helpers.php
+partials
+repos
+
+/Applications/XAMPP/xamppfiles/htdocs/cybershop/app/partials:
+admin_sidebar.php
+footer.php
+header.php
+
+/Applications/XAMPP/xamppfiles/htdocs/cybershop/app/repos:
+orders_repo.php
+products_repo.php
+users_repo.php
+
+/Applications/XAMPP/xamppfiles/htdocs/cybershop/assets:
+css
+images
+js
+
+/Applications/XAMPP/xamppfiles/htdocs/cybershop/assets/css:
+admin-theme.css
+style.css
+
+/Applications/XAMPP/xamppfiles/htdocs/cybershop/assets/images:
+antivirus.png
+data_backup.png
+endpoint_hardening.png
+firewall.png
+firewall_setup.png
+logo.png
+network_assessment.png
+password_consulting.png
+password_manager.png
+placeholder-toy.png
+secure-vpn.png
+security_training.png
+vpn.png
+vpn_subscription.png
+wifi pineapple.png
+wifi.png
+
+/Applications/XAMPP/xamppfiles/htdocs/cybershop/assets/js:
+app.js
+
+/Applications/XAMPP/xamppfiles/htdocs/cybershop/public:
+add_to_cart.php
+cart.php
+cart_remove.php
+checkout.php
+index.php
+login.php
+logout.php
+order_details.php
+orders.php
+payment.php
+product.php
+register.php
+test_login.php
+
+/Applications/XAMPP/xamppfiles/htdocs/cybershop/sql:
+sql
+admin@Admins-MacBook-Air CyberShop % 

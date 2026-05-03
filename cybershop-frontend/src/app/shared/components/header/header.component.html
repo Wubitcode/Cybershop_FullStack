@@ -1,0 +1,60 @@
+<nav class="navbar">
+
+  <!-- LEFT: LOGO -->
+  <div class="nav-left" routerLink="/" (click)="closeMenu()" style="cursor:pointer;">
+    <img src="/images/cybershoplogo.png" class="logo" alt="logo">
+    <span class="brand">CYBERSHOP</span>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="menu-toggle" (click)="toggleMenu()">☰</div>
+
+  <!-- RIGHT MENU -->
+  <ul class="nav-right" [class.open]="isMenuOpen()">
+
+    <!-- PAGES DROPDOWN -->
+    <li class="dropdown">
+      <span class="nav-item" (click)="togglePages()">Pages ▾</span>
+
+      <ul class="dropdown-menu" [class.show]="pagesOpen()">
+        <li><a routerLink="/" (click)="closeMenu()">Home</a></li>
+        <li><a routerLink="/about" (click)="closeMenu()">About</a></li>
+        <li><a routerLink="/services" (click)="closeMenu()">Services</a></li>
+        <li><a routerLink="/contact" (click)="closeMenu()">Contact</a></li>
+      </ul>
+    </li>
+
+    <!-- SHOP -->
+    <li>
+      <a routerLink="/shop" (click)="closeMenu()">Shop</a>
+    </li>
+
+    <!-- CART -->
+    <li>
+      <a routerLink="/cart" (click)="closeMenu()">
+        Cart <span class="cart-badge">{{ cartCount() }}</span>
+      </a>
+    </li>
+
+    <!-- ACCOUNT -->
+    <li class="dropdown">
+      <span class="nav-item" (click)="toggleAccount()">Account ▾</span>
+
+      <ul class="dropdown-menu" [class.show]="accountOpen()">
+
+        @if (!isLoggedIn()) {
+          <li><a routerLink="/auth/login" (click)="closeMenu()">Sign In</a></li>
+          <li><a routerLink="/auth/register" (click)="closeMenu()">Sign Up</a></li>
+        } @else {
+          @if (isAdmin()) {
+            <li><a routerLink="/admin" (click)="closeMenu()">Dashboard</a></li>
+          }
+          <li><a (click)="logout()" style="cursor:pointer;">Logout</a></li>
+        }
+
+      </ul>
+    </li>
+
+  </ul>
+
+</nav>

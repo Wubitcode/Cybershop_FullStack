@@ -1,0 +1,5 @@
+main {
+  min-height: 80vh; /* Ensures the page is tall enough */
+  padding-top: 20px;
+  background-color: #0d1117; /* Keep the dark theme consistent */
+}

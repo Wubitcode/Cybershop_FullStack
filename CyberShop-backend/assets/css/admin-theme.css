@@ -1,0 +1,203 @@
+/* 
+   CYBER TERMINAL - PROFESSIONAL EDITION
+   Project: CyberShop Admin Terminal
+*/
+
+/* 1. RESET & BASE (Zero Gap Strategy) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-black: #000000;
+    --sidebar-bg: #11141a;
+    --card-bg: #191c24;
+    --accent-cyan: #00d2ff;
+    --accent-green: #00d25b;
+    --text-dim: #6c7293;
+    --border-subtle: rgba(255, 255, 255, 0.05);
+}
+
+html, body {
+    background-color: var(--bg-black) !important;
+    color: #ffffff !important;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* 2. LAYOUT ARCHITECTURE */
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw; /* Forces full width usage */
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-black);
+}
+
+.sidebar {
+    width: 230px;
+    background: var(--sidebar-bg);
+    position: sticky;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-subtle);
+    z-index: 1000;
+}
+
+.main-terminal {
+    flex-grow: 1;
+    background: var(--bg-black);
+    padding: 1.5rem 2rem; 
+    margin: 0 !important; /* Fixed: Prevents gap between nav and content */
+    display: flex;
+    flex-direction: column;
+    min-width: 0; 
+}
+
+/* 3. NAVIGATION COMPONENTS */
+.sidebar-brand {
+    padding: 2rem 1.8rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--accent-cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.nav-link-custom {
+    padding: 0.9rem 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link-custom:hover, 
+.nav-link-custom.active {
+    background: rgba(0, 210, 255, 0.1);
+    color: var(--accent-cyan);
+    border-left: 4px solid var(--accent-cyan); /* Active Indicator */
+}
+
+/* 4. DATA COMPONENTS (Cards & Tables) */
+.cyber-card {
+    background: var(--card-bg);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-subtle);
+}
+
+.stat-label { 
+    color: var(--text-dim); 
+    font-size: 0.7rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+}
+
+.stat-value { 
+    font-size: 1.8rem; 
+    font-weight: 700; 
+    margin-top: 5px;
+}
+
+.table-terminal { 
+    width: 100%; 
+    color: #fff; 
+    border-collapse: collapse; 
+}
+
+.table-terminal th { 
+    color: var(--text-dim); 
+    font-size: 0.7rem; 
+    text-transform: uppercase;
+    text-align: left; 
+    padding: 12px; 
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.table-terminal td { 
+    padding: 15px 12px; 
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+/* 5. BOOTSTRAP OVERRIDES (Essential for Gaps) */
+.container, .container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: 100% !important;
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Pulse animation for 'Active' status */
+.dot-online {
+    height: 8px;
+    width: 8px;
+    background-color: var(--accent-green);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    box-shadow: 0 0 8px var(--accent-green);
+}
+/* Ensure the sidebar isn't being 'crushed' or covered */
+.admin-wrapper {
+    display: flex; /* This is the most important line! */
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background: #050505;
+    border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+.main-terminal {
+    flex-grow: 1;
+    padding: 2rem;
+    background: #000;
+    min-width: 0; /* Prevents layout bursting */
+}
+
+/* Ensure cards look like the cyber theme */
+.cyber-card {
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid rgba(0, 210, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 4px;
+    height: 100%;
+}
+/* ==========================================================================
+   SIDEBAR & BRANDING
+   ========================================================================== */
+
+.sidebar-header {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-logo {
+    height: 30px; /* Adjust this to your preference */
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px var(--accent-cyan));
+    display: block;
+}
+
+/* ... other sidebar styles ... */

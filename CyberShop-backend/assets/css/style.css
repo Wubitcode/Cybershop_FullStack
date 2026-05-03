@@ -1,0 +1,64 @@
+/* =============================================
+   STYLE 2: GLASSMORPHISM (Modern & Sleek)
+   ============================================= */
+
+:root {
+    --glass-bg: #0f172a;           /* Deep Navy/Black */
+    --glass-card: rgba(30, 41, 59, 0.7); /* Semi-transparent blue-gray */
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --accent-blue: #38bdf8;        /* Sky Blue */
+}
+
+body.glass-theme {
+    background: radial-gradient(circle at top right, #1e293b, #0f172a) !important;
+    color: #f1f5f9 !important;
+    min-height: 100vh;
+}
+
+/* The Glass Card Effect */
+.glass-card {
+    background: var(--glass-card) !important;
+    backdrop-filter: blur(12px); /* This creates the "frost" effect */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    border-color: rgba(56, 189, 248, 0.4) !important;
+    transform: translateY(-5px);
+}
+
+/* Typography & Icons */
+.text-accent { color: var(--accent-blue) !important; }
+.icon-box-glass {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent-blue);
+    padding: 12px;
+    border-radius: 12px;
+}
+/* --- CYBER_SYSTEM_ANIMATIONS --- */
+
+/**
+ * Standard rotation for loading icons and 
+ * system authorization states.
+ */
+@keyframes spin { 
+    from { transform: rotate(0deg); } 
+    to { transform: rotate(360deg); } 
+}
+
+.spin-anim { 
+    display: inline-block; 
+    animation: spin 2s linear infinite; 
+}
+
+/**
+ * Optional: A faster "glitch" spin for high-intensity actions
+ */
+.spin-fast {
+    display: inline-block;
+    animation: spin 0.8s linear infinite;
+}

@@ -1,0 +1,75 @@
+<div class="auth-container">
+  <div class="auth-card">
+
+    <div class="auth-header">
+      <h2>Create Secure Account</h2>
+      <p>Join the CyberShop network for elite tools and training.</p>
+    </div>
+
+    <form (ngSubmit)="onRegister()">
+
+      <div class="input-group">
+        <label>Full Name / Business Name</label>
+        <input 
+          type="text" 
+          [(ngModel)]="userData.name" 
+          name="name" 
+          placeholder="Full Name"
+          required
+        >
+      </div>
+
+      <div class="input-group">
+        <label>Email Address</label>
+        <input 
+          type="email" 
+          [(ngModel)]="userData.email" 
+          name="email" 
+          placeholder="email@example.com" 
+          required
+        >
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input 
+          type="password" 
+          [(ngModel)]="userData.password" 
+          name="password" 
+          placeholder="••••••••" 
+          required
+        >
+      </div>
+
+      <!-- ✅ Added -->
+      <div class="input-group">
+        <label>Confirm Password</label>
+        <input 
+          type="password" 
+          [(ngModel)]="userData.confirmPassword" 
+          name="confirmPassword" 
+          placeholder="••••••••" 
+          required
+        >
+      </div>
+
+      <button type="submit" class="btn-auth" [disabled]="loading">
+        {{ loading ? 'Creating Account...' : 'Initialize Account' }}
+      </button>
+
+      <!-- ✅ Error message -->
+      <p *ngIf="errorMessage" class="error-text">
+        {{ errorMessage }}
+      </p>
+
+    </form>
+
+    <div class="auth-footer">
+      <p>
+        Already have an account? 
+        <a routerLink="/auth/login">Login here</a>
+      </p>
+    </div>
+
+  </div>
+</div>

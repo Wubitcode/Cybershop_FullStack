@@ -1,0 +1,48 @@
+.detail-container { max-width: 1100px; margin: 40px auto; padding: 20px; }
+.back-nav a { color: #58a6ff; text-decoration: none; font-weight: 500; }
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 40px;
+  margin-top: 20px;
+}
+
+.visual-pane img { width: 100%; border-radius: 8px; background: #0d1117; }
+
+.sku-tag { color: #8b949e; font-family: 'Courier New', monospace; font-size: 0.8rem; }
+h1 { color: #f0f6fc; font-size: 2.5rem; margin: 10px 0; }
+.category { color: #58a6ff; font-weight: bold; text-transform: uppercase; margin-bottom: 20px; }
+
+.specs-box { border-top: 1px solid #30363d; padding-top: 20px; margin-bottom: 30px; }
+.specs-box h4 { color: #f0f6fc; margin-bottom: 10px; }
+.specs-box p { color: #8b949e; line-height: 1.6; }
+
+.in-stock { color: #3fb950; font-weight: bold; }
+.out-stock { color: #f85149; font-weight: bold; }
+
+.purchase-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0d1117;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.price-display { font-size: 2rem; font-weight: 800; color: #f0f6fc; }
+.btn-buy {
+  background: #238636;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-buy:disabled { background: #21262d; color: #484f58; cursor: not-allowed; }

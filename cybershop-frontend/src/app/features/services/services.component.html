@@ -1,0 +1,74 @@
+<div class="services-wrapper">
+  <header class="services-header">
+    <h1>Our <span class="highlight">Expertise</span></h1>
+    <p>
+      Hands-on cybersecurity education and digital safety training for students,
+      small businesses, and organizations.
+    </p>
+  </header>
+
+  <div class="container">
+
+    <div class="services-grid">
+      @for (service of services; track service.title) {
+        <div class="service-card">
+          <div class="service-icon">{{ service.icon }}</div>
+          <h2>{{ service.title }}</h2>
+          <p>{{ service.description }}</p>
+
+          <ul class="feature-list">
+            @for (feature of service.features; track feature) {
+              <li><span class="check">✔</span> {{ feature }}</li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+
+    <section class="target-clients">
+      <h2>Who We Serve</h2>
+
+      <div class="client-row">
+
+        <div class="client-item">
+          <h3>Students</h3>
+          <p>
+            Interactive cybersecurity learning for middle and high school students.
+            Students build real-world digital safety skills through Capture The Flag (CTF)
+            activities, online safety challenges, and practical security awareness training.
+          </p>
+        </div>
+
+        <div class="client-item">
+          <h3>Small Businesses</h3>
+          <p>
+            Practical cybersecurity support for small businesses, including security awareness,
+            basic risk assessments, and foundational digital protection setup.
+          </p>
+        </div>
+
+        <div class="client-item">
+          <h3>Organizations</h3>
+          <p>
+            Cybersecurity advisory and protection strategies designed to help organizations
+            strengthen their digital infrastructure and reduce cyber risks.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-box">
+        <h2>Ready to Secure Your Future?</h2>
+        <p>
+          Explore our training programs or request a cybersecurity consultation today.
+        </p>
+        <button class="cta-btn" routerLink="/contact">
+          Get Started
+        </button>
+      </div>
+    </section>
+
+  </div>
+</div>

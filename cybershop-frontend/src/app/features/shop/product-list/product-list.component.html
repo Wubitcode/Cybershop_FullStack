@@ -1,0 +1,93 @@
+<div class="container py-5 shop-container">
+
+  <div class="shop-header">
+    <div class="header-text">
+      <h1>CyberShop Inventory</h1>
+      <p>Secure products marketplace</p>
+    </div>
+  </div>
+
+  @if (errorMessage()) {
+    <div class="alert alert-danger text-center">
+      {{ errorMessage() }}
+    </div>
+  }
+
+  <div class="row">
+
+    @for (product of products(); track product.product_id) {
+
+      <div class="col-md-4 mb-4">
+
+        <div class="card h-100 shadow-sm">
+
+          <!-- IMAGE -->
+          <img
+            [src]="fixImage(product.image)"
+            [alt]="product.name"
+            class="card-img-top"
+          />
+
+          <!-- BODY -->
+          <div class="card-body">
+
+            <div class="category-tag">
+              {{ product.category }}
+            </div>
+
+            <h5 class="mt-2">{{ product.name }}</h5>
+
+            <p class="small">{{ product.description }}</p>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="price">
+                {{ +product.price | currency }}
+              </div>
+
+              <span
+                class="badge"
+                [class.bg-success]="product.stock > 0"
+                [class.bg-danger]="product.stock <= 0"
+              >
+                {{ product.stock > 0 ? 'In Stock' : 'Out' }}
+              </span>
+            </div>
+
+          </div>
+
+          <!-- FOOTER -->
+          <div class="card-footer">
+
+            <div class="button-group">
+
+              <button
+                class="btn-secondary"
+                [routerLink]="['/shop/product', product.product_id]">
+                Details
+              </button>
+
+              <button
+                class="btn-primary"
+                (click)="addToCart(product)"
+                [disabled]="product.stock <= 0">
+                Add to Cart
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    } @empty {
+
+      <div class="col-12 text-center">
+        <p>No products available</p>
+      </div>
+
+    }
+
+  </div>
+</div>

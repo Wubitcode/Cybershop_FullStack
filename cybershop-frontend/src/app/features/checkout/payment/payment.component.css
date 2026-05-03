@@ -1,0 +1,85 @@
+.payment-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: #f4f7f6;
+  min-height: 80vh;
+}
+
+.payment-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 450px;
+}
+
+h2 {
+  color: #2c3e50;
+  text-align: center;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.total-display {
+  text-align: center;
+  background: #eef2f3;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #7f8c8d;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.btn-verify {
+  width: 100%;
+  padding: 15px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s;
+}
+
+.btn-verify:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #3498db;
+  text-decoration: none;
+  font-size: 0.9rem;
+}

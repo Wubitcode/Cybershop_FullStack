@@ -1,0 +1,68 @@
+<div class="container py-5">
+
+  @if (loading()) {
+    <p class="text-center">Loading product...</p>
+  }
+
+  @if (error()) {
+    <div class="alert alert-danger text-center">
+      {{ error() }}
+    </div>
+  }
+
+  @if (product()) {
+
+    <div class="row">
+
+      <!-- IMAGE -->
+      <div class="col-md-6">
+        <img
+          [src]="fixImage(product()!.image)"
+          [alt]="product()!.name"
+          class="img-fluid rounded shadow"
+        />
+      </div>
+
+      <!-- INFO -->
+      <div class="col-md-6">
+
+        <h2>{{ product()!.name }}</h2>
+
+        <p class="text-muted">
+          Category: {{ product()!.category }}
+        </p>
+
+        <p>{{ product()!.description }}</p>
+
+        <h3 class="text-primary">
+          {{ +product()!.price | currency }}
+        </h3>
+
+        <p>
+          Stock:
+          <span [class.text-success]="product()!.stock > 0"
+                [class.text-danger]="product()!.stock <= 0">
+            {{ product()!.stock }}
+          </span>
+        </p>
+
+        <button
+          class="btn btn-dark mt-3"
+          (click)="addToCart(product()!)"
+          [disabled]="product()!.stock <= 0">
+          Add to Cart
+        </button>
+
+        <button class="btn btn-secondary" [routerLink]="['/shop']">
+  ← Back to Shop
+</button>
+
+        
+
+      </div>
+
+    </div>
+
+  }
+
+</div>

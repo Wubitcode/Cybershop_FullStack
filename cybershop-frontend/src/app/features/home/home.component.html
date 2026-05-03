@@ -1,0 +1,84 @@
+<div class="home-wrapper">
+  
+  <section class="hero centered">
+    <div class="container">
+      <div class="hero-content">
+        <div class="status-bar">
+          <span class="status-indicator" [class.warning]="systemStatus() !== 'SECURE'"></span>
+          CORE_LOG: {{ systemStatus() }} | {{ currentTime() }}
+        </div>
+
+        <h1 class="glitch-text">
+          <span class="elite-brand">ELITE-CYBERSHOP</span><br>
+          Secure Your <span class="highlight">Digital Frontier</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+          Professional hardware and security protocols engineered for peak network integrity.
+        </p>
+        
+        <div class="hero-btns">
+          <button class="btn-primary" routerLink="/shop">Explore Shop</button>
+          <button class="btn-secondary" routerLink="/services">View Services</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-section">
+    <div class="container">
+      <h2 class="section-title">Featured <span class="highlight">Solutions</span></h2>
+      
+      <div class="product-grid">
+        @for (product of featuredProducts(); track product.product_id) {
+          <div class="product-card">
+            <div class="product-image">
+              <img [src]="'/images/' + product.image" [alt]="product.name">
+              <span class="price-tag">${{ product.price }}</span>
+            </div>
+            
+            <div class="product-info">
+              <h3>{{ product.name }}</h3>
+              <p class="product-description">{{ product.description }}</p>
+              
+              <div class="product-footer">
+                <span class="category-tag">{{ product.category }}</span>
+                <button class="view-btn" [routerLink]="['/shop/product', product.product_id]">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      @if (featuredProducts().length === 0) {
+        <div class="status-bar" style="display: block; margin: 40px auto; max-width: 300px; text-align: center;">
+          SYSTEM_STATUS: SCANNING_DATABASE...
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="security-banner">
+    <div class="container">
+      <div class="security-card">
+        <div class="security-header">
+          <div class="shield-icon">🛡️</div>
+          <h2>Zero-Trust Architecture</h2>
+        </div>
+        <p>
+          Our platform utilizes advanced encryption and role-based access control 
+          to ensure every transaction meets elite security standards.
+        </p>
+        <div class="protocol-tags">
+          <span>Encrypted Payloads</span>
+          <span>Secure Auditing</span>
+          <span>RBAC Enforcement</span>
+        </div>
+        <button class="btn-outline" routerLink="/about">Security Protocols</button>
+      </div>
+    </div>
+  </section>
+
+</div>

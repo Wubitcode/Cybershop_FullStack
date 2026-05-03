@@ -1,0 +1,57 @@
+.
+├── README.md
+├── angular.json
+├── package-lock.json
+├── package.json
+├── public
+│   ├── favicon.ico
+│   └── images
+│       ├── antivirus.png
+│       ├── cybershoplogo.png
+│       ├── data_backup.png
+│       ├── endpoint_hardening.png
+│       ├── firewall.png
+│       ├── firewall_setup.png
+│       ├── network_assessment.png
+│       ├── password_consulting.png
+│       ├── password_manager.png
+│       ├── placeholder-toy.png
+│       ├── secure-vpn.png
+│       ├── security_training.png
+│       ├── vpn_subscription.png
+│       ├── wifi.png
+│       └── wifi_pineapple.png
+├── src
+│   ├── app
+│   │   ├── app.config.ts
+│   │   ├── app.css
+│   │   ├── app.html
+│   │   ├── app.routes.ts
+│   │   ├── app.spec.ts
+│   │   ├── app.ts
+│   │   ├── core
+│   │   │   ├── guards
+│   │   │   ├── interceptors
+│   │   │   └── services
+│   │   ├── features
+│   │   │   ├── about
+│   │   │   ├── admin
+│   │   │   ├── auth
+│   │   │   ├── checkout
+│   │   │   ├── contact
+│   │   │   ├── home
+│   │   │   ├── services
+│   │   │   └── shop
+│   │   └── shared
+│   │       ├── components
+│   │       └── models
+│   ├── assets
+│   ├── index.html
+│   ├── main.ts
+│   └── styles.css
+├── structure.txt
+├── tsconfig.app.json
+├── tsconfig.json
+└── tsconfig.spec.json
+
+22 directories, 33 files

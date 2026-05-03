@@ -1,0 +1,193 @@
+<div class="inventory-container">
+
+  <!-- ===================== -->
+  <!-- STATS DASHBOARD -->
+  <!-- ===================== -->
+  <div class="stats-bar">
+
+    <div class="stat-card">
+      <span class="stat-label">TOTAL ASSETS</span>
+      <span class="stat-value">{{ products.length }}</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-label">SYSTEM STATUS</span>
+      <span class="stat-value status-online">SECURE</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-label">NODE LOCATION</span>
+      <span class="stat-value">DURHAM_01</span>
+    </div>
+
+  </div>
+
+  <!-- ===================== -->
+  <!-- HEADER -->
+  <!-- ===================== -->
+  <div class="section-header">
+
+    <div class="title-group">
+      <h2 class="white-title">INVENTORY DATABASE</h2>
+      <span class="node-id">NODE_01_ASSETS</span>
+    </div>
+
+    <div class="header-actions">
+      <button class="back-btn" (click)="goBack()">← DASHBOARD</button>
+      <button class="add-btn" (click)="openAddModal()">+ REGISTER NEW ASSET</button>
+    </div>
+
+  </div>
+
+  <!-- ===================== -->
+  <!-- SEARCH + FILTER -->
+  <!-- ===================== -->
+  <div class="search-bar">
+
+    <input
+      type="text"
+      placeholder="Search assets..."
+      [(ngModel)]="searchTerm"
+    />
+
+    <select [(ngModel)]="selectedCategory">
+      <option value="">All Categories</option>
+      <option value="Endpoint Security">Endpoint Security</option>
+      <option value="Privacy">Privacy</option>
+      <option value="Network Security">Network Security</option>
+      <option value="Service">Service</option>
+      <option value="General">General</option>
+    </select>
+
+  </div>
+
+  <!-- ===================== -->
+  <!-- TABLE -->
+  <!-- ===================== -->
+  <div class="table-wrapper">
+
+    <table class="cyber-table">
+
+      <thead>
+        <tr>
+          <th>SKU / ID</th>
+          <th>PRODUCT NAME</th>
+          <th>CATEGORY</th>
+          <th>STOCK LEVEL</th>
+          <th>UNIT PRICE</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <!-- LOADING -->
+        <tr *ngIf="isLoading">
+          <td colspan="6" class="status-msg">
+            Connecting to secure database...
+          </td>
+        </tr>
+
+        <!-- DATA -->
+        <!-- 🔥 IMPORTANT: use filteredProducts -->
+        <tr *ngFor="let p of filteredProducts">
+
+          <td class="sku-cell">{{ p.sku || 'N/A' }}</td>
+          <td class="name-cell">{{ p.name }}</td>
+
+          <td>
+            <span class="badge">{{ p.category }}</span>
+          </td>
+
+          <td [ngClass]="p.stock < 10 ? 'low-stock' : 'healthy-stock'">
+            {{ p.stock }} UNITS
+          </td>
+
+          <td class="price-cell">
+            ${{ p.price }}
+          </td>
+
+          <td class="action-cells">
+
+            <button (click)="editAsset(p)" class="edit-btn">
+              EDIT
+            </button>
+
+            <button (click)="deleteAsset(p.product_id)" class="delete-btn">
+              DELETE
+            </button>
+
+          </td>
+
+        </tr>
+
+        <!-- EMPTY -->
+        <tr *ngIf="!isLoading && filteredProducts.length === 0">
+          <td colspan="6" class="status-msg">
+            No assets found.
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+  </div>
+
+  <!-- ===================== -->
+  <!-- MODAL (ADD / EDIT) -->
+  <!-- ===================== -->
+  <div class="modal-overlay" *ngIf="showModal">
+
+    <div class="cyber-modal">
+
+      <h2>
+        {{ isEditMode ? 'EDIT ASSET' : 'REGISTER NEW ASSET' }}
+      </h2>
+
+      <form (ngSubmit)="saveProduct()">
+
+        <input type="text" placeholder="SKU"
+          [(ngModel)]="currentProduct.sku" name="sku" />
+
+        <input type="text" placeholder="Product Name"
+          [(ngModel)]="currentProduct.name" name="name" />
+
+        <textarea placeholder="Description"
+          [(ngModel)]="currentProduct.description" name="description"></textarea>
+
+        <input type="number" placeholder="Price"
+          [(ngModel)]="currentProduct.price" name="price" />
+
+        <input type="number" placeholder="Stock"
+          [(ngModel)]="currentProduct.stock" name="stock" />
+
+        <select [(ngModel)]="currentProduct.category" name="category">
+          <option value="General">General</option>
+          <option value="Service">Service</option>
+          <option value="Security">Network Security</option>
+          <option value="Endpoint Security">Endpoint Security</option>
+          <option value="Privacy">Privacy</option>
+          
+        </select>
+
+        <input type="text" placeholder="Image filename"
+          [(ngModel)]="currentProduct.image" name="image" />
+
+        <div class="modal-actions">
+
+          <button type="submit" class="confirm-btn">
+            COMMIT_ASSET
+          </button>
+
+          <button type="button" class="abort-btn" (click)="showModal = false">
+            Cancel
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</div>

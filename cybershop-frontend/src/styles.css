@@ -1,0 +1,48 @@
+/* Layout Alignment */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Dropdown visibility logic */
+.dropdown { position: relative; cursor: pointer; }
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #161b22;
+  border: 1px solid #30363d;
+  min-width: 200px;
+  z-index: 100;
+}
+.dropdown:hover .dropdown-menu { display: block; }
+
+/* Home Section Styling */
+.hero-terminal {
+  background: #0d1117;
+  padding: 100px 20px;
+  text-align: center;
+  border-bottom: 2px solid #238636;
+}
+
+.directives {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 40px;
+  background: #161b22;
+}
+
+.directive-box h3 { color: #238636; letter-spacing: 2px; }
+
+.label {
+  color: #8b949e;
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  display: block;
+}

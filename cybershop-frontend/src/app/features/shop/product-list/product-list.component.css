@@ -1,0 +1,121 @@
+:host {
+  display: block;
+  background-color: #0d1117;
+  min-height: 100vh;
+  color: #c9d1d9;
+}
+
+/* CONTAINER */
+.shop-container {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+/* HEADER */
+.shop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #30363d;
+  padding-bottom: 20px;
+}
+
+.header-text h1 {
+  color: #f0f6fc;
+  font-size: 2.2rem;
+  margin: 0;
+}
+
+.header-text p {
+  color: #8b949e;
+  margin-top: 8px;
+}
+
+/* CARD */
+.card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  color: #f0f6fc;
+  transition: 0.3s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #58a6ff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* IMAGE FIX (IMPORTANT) */
+.card-img-top {
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
+  background: #0d1117;
+}
+
+/* TEXT */
+.category-tag {
+  color: #58a6ff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+h5 {
+  color: #f0f6fc;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #f0f6fc;
+}
+
+/* BADGE */
+.badge {
+  font-size: 0.7rem;
+  padding: 5px 10px;
+}
+
+/* FOOTER */
+.card-footer {
+  background: transparent;
+  border-top: 1px solid #30363d;
+}
+
+/* BUTTONS */
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-primary {
+  flex: 1;
+  padding: 10px;
+  background: #238636;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #2ea043;
+}
+
+.btn-secondary {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: #30363d;
+}

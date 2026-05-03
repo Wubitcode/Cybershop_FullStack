@@ -1,0 +1,72 @@
+<div class="contact-wrapper">
+  <header class="contact-header">
+    <h1>Secure <span class="highlight">Communication</span> Portal</h1>
+    <p>Reach out for security audits, web development, or student training inquiries.</p>
+  </header>
+
+  <div class="container">
+    <div class="contact-grid">
+      
+      <section class="form-container">
+        @if (!submitted) {
+          <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" name="name" [(ngModel)]="contactData.name" required placeholder="John Doe">
+            </div>
+
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" name="email" [(ngModel)]="contactData.email" required placeholder="john@example.com">
+            </div>
+
+            <div class="form-group">
+              <label>Inquiry Type</label>
+              <select name="subject" [(ngModel)]="contactData.subject">
+                <option value="General Inquiry">General Inquiry</option>
+                <option value="Security Audit">Security Audit</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Student Training">Student Training</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Message</label>
+              <textarea name="message" [(ngModel)]="contactData.message" rows="5" required placeholder="How can we help secure your digital future?"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" [disabled]="!contactForm.valid">
+              Send Encrypted Message
+            </button>
+          </form>
+        } @else {
+          <div class="success-message">
+            <div class="check-icon">🛡️</div>
+            <h2>Message Sent Successfully</h2>
+            <p>Your inquiry has been encrypted and sent to our team. We will respond shortly.</p>
+          </div>
+        }
+      </section>
+
+      <aside class="details-container">
+        <div class="detail-card">
+          <h3>Location</h3>
+          <p>Durham Region, Ontario, Canada</p>
+        </div>
+
+        <div class="detail-card">
+          <h3>Direct Connect</h3>
+          <p>Email: support@cybershop.ca</p>
+          <p>Hours: Mon - Fri, 9am - 5pm EST</p>
+        </div>
+
+        <div class="detail-card">
+          <h3>Connect Professionally</h3>
+          <p>Find us on LinkedIn for technical updates and security insights.</p>
+          <div class="social-placeholder">Professional Network Verified ✓</div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</div>
